@@ -18,7 +18,7 @@ def details():
         # Use datetime.now() directly here as well
         'timenow': datetime.now().strftime("%I:%M%p on %B %d, %Y"),
         'hostname': socket.gethostname(),
-        'message': 'test new changes 12'
+        'message': 'test new changes 1'
     })
 
 @app.route('/api/v1/healthz')

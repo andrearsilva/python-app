@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: andreavix/python-app:$GITHUB_OUTPUT
+          tags: andreavix/python-app:${{ steps.short_sha_step.outputs.short_sha }}

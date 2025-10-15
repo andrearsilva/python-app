@@ -17,7 +17,8 @@ def details():
     return jsonify({    
         # Use datetime.now() directly here as well
         'timenow': datetime.now().strftime("%I:%M%p on %B %d, %Y"),
-        'hostname': socket.gethostname()
+        'hostname': socket.gethostname(),
+        'message': 'test changes'
     })
 
 @app.route('/api/v1/healthz')
@@ -30,7 +31,3 @@ def healthz():
 # main driver function
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
-
-
-# '/api/v1/details'
-# '/api/v1/healtjz'

@@ -13,8 +13,9 @@ jobs:
     steps:
       - 
         name: Set short SHA
-        id: short_sha_step
-        run: echo "short_sha=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_OUTPUT
+        shell: bash
+        run: |
+          echo "COMMIT_ID=${GITHUB_SHA::6}" >> "$GITHUB_ENV"
 
       -
         name: Login to Docker Hub
@@ -27,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: andreavix/python-app:${{ steps.short_sha_step.outputs.short_sha }}
+          tags: andreavix/python-app:${{ env.COMMIT_ID }}
 
   cd:
     needs: ci

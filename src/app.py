@@ -16,7 +16,7 @@ def details():
     """
     return jsonify({    
         # Use datetime.now() directly here as well
-        'time': datetime.now().strftime("%I:%M%p on %B %d, %Y"),
+        'timenow': datetime.now().strftime("%I:%M%p on %B %d, %Y"),
         'hostname': socket.gethostname()
     })
 

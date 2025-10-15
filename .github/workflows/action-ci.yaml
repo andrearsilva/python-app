@@ -29,11 +29,22 @@ jobs:
         with:
           push: true
           tags: andreavix/python-app:${{ env.COMMIT_ID }}
+    outputs:
+      commit_id: ${{ env.COMMIT_ID }}
 
   cd:
     needs: ci
     runs-on: self-hosted
     steps:
+
+      - 
+        name: modify image on values
+        shell: bash
+        run: |
+          echo ${{needs:ci.outputs.commit_id}}
+          pip install yq
+          yq -Yi 'image.tag = "${{needs:ci.outputs.commit_id}}"' charts/python-app/values.yaml
+
       - 
         name: argocd cli install
         shell: bash

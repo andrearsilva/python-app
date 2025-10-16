@@ -1,7 +1,7 @@
-site_name: 'puthon-app'
+site_name: 'python-app'
 site_description: 'Main documentation for Backstage features and framework APIs'
 repo_url: https://github.com/andrearsilva/python-app
-edit_uri: edit/master/docs
+edit_uri: edit/main/docs
 
 plugins:
   - techdocs-core
